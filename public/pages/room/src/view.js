@@ -1,4 +1,4 @@
-import { Util } from './util.js'
+import { Util } from './util/util.js'
 
 export class View {
   createVideoElement({ muted = true, src, srcObject }) {

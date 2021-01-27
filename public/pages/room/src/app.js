@@ -1,4 +1,6 @@
 import { View } from './view.js'
+import { Media } from './util/media.js'
+import { Business } from './util/business.js'
 
 const recordClick = function (recorderBtn) {
   this.recordingEnabled = false
@@ -17,9 +19,12 @@ const onload = () => {
   // recorderBtn.addEventListener('click', recordClick(recorderBtn))
 
   const view = new View()
-  // view.renderVideo({ userId: 'test01', url: 'https://media.giphy.com/media/YKcq4L6zgKFHd2wnXp/giphy.mp4' })
-  // view.renderVideo({ userId: 'test02', isCurrentId: true, url: 'https://media.giphy.com/media/YKcq4L6zgKFHd2wnXp/giphy.mp4' })
-  // view.renderVideo({ userId: 'test02', url: 'https://media.giphy.com/media/YKcq4L6zgKFHd2wnXp/giphy.mp4' })
+  const media = new Media()
+  Business.initialize({
+    view,
+    media,
+    room
+  })
 }
 
 window.onload = onload

@@ -20,8 +20,12 @@ export class View {
     return video
   }
 
-  renderVideo({ userId, stream = null, url = null, isCurrentId = false }) {
-    const video = this.createVideoElement({ src: url, srcObject: stream })
+  renderVideo({ userId, stream = null, url = null, isCurrentId = false, muted = true }) {
+    const video = this.createVideoElement({
+      muted,
+      src: url,
+      srcObject: stream
+    })
     this.appendToHtmlTree(userId, video, isCurrentId)
   }
 

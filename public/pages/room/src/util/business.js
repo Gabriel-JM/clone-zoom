@@ -27,6 +27,7 @@ export class Business {
     
     this.view.renderVideo({
       userId,
+      muted: true,
       stream,
       isCurrentId
     })

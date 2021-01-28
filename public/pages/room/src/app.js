@@ -2,6 +2,7 @@ import { View } from './view.js'
 import { Media } from './util/media.js'
 import { Business } from './util/business.js'
 import { SocketBuilder } from './util/socket.js'
+import { PeerBuilder } from './util/peer.js'
 
 const recordClick = function (recorderBtn) {
   this.recordingEnabled = false
@@ -21,13 +22,25 @@ const onload = () => {
 
   const socketUrl = 'http://localhost:3000'
   const socketBuilder = new SocketBuilder({ socketUrl })
+
+  const peerConfig = Object.values({
+    id: undefined,
+    config: {
+      port: 9000,
+      host: 'localhost',
+      path: '/'
+    }
+  })
+  const peerBuilder = new PeerBuilder({ peerConfig })
+
   const view = new View()
   const media = new Media()
   Business.initialize({
     view,
     media,
     room,
-    socketBuilder
+    socketBuilder,
+    peerBuilder
   })
 }
 

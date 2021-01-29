@@ -48,4 +48,8 @@ export class View {
     const participants = document.getElementById('participants')
     participants.innerHTML = count + myself
   }
+
+  removeVideoElement(id) {
+    document.getElementById(id).remove()
+  }
 }
